@@ -36,10 +36,11 @@ namespace WebApplication1.Controllers
         /// 新闻列表 
         /// </summary>
         /// <returns></returns>
-        public ActionResult List()
+        public ActionResult List(int page=1)
         {
             string[] data = new string[] { "北京再发霾黄色预警", "云南老人高速上砸石拦车：为去杭州看望外孙" , "西安榆林公交卡可刷卡消费" };
             ViewBag.data = data;
+            ViewBag.page = page;
 
             return View();
         }
@@ -48,6 +49,17 @@ namespace WebApplication1.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        /// 添加新闻 
+        public ActionResult Add()
+        {
+           return View();
+        }
+        public ActionResult Save(string title,string content)
+        {
+            ViewBag.Title = title;
+            ViewBag.Content = content;
             return View();
         }
     }
