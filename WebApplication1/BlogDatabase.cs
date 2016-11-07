@@ -1,7 +1,8 @@
 ﻿namespace WebApplication1
 {
     using System;
-     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity;
      using System.Linq;
  
      public class BlogDatabase : DbContext
@@ -62,13 +63,15 @@
          /// <summary>
          /// 标题
          /// </summary>
-         public string Subject { get; set; }
- 
-         /// <summary>
-         /// 文章内容
-         /// </summary>
- 
-         public string Body { get; set; }
+         ///  [Required]
+       [StringLength(maximumLength: 20, MinimumLength = 5)]
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// 文章内容
+        /// </summary>
+        [Required]
+        public string Body { get; set; }
  
          /// <summary>
          /// 创建时间
